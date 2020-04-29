@@ -21,5 +21,7 @@ An `nvmrc` file is included if using nvm.
 ## Development
 ### Installing Dependencies
 From within the root directory:
-> npm install -g webpack
-> npm install
+```#!/bin/bash
+npm install -g webpack
+npm install
+```
