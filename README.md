@@ -1,7 +1,7 @@
 # Customer Images
 Create a customer images module for front end group project
 
-## Realted team member projects
+## Realted Team Member Projects
 * https://github.com/GHesericsu/product-images-viewer
 * https://github.com/sumitSLal/video-carousel
 * https://github.com/jaketurchetta/customer-reviews
