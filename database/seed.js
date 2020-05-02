@@ -1,6 +1,6 @@
 const CustomerImage = require('./index.js');
-const faker = require('faker/locale/en');
-faker.locale = 'en';
+const faker = require('faker');
+faker.locale = 'en_US';
 
 const images = [];
 for (let j = 0; j < 4; j++) {
@@ -13,8 +13,8 @@ for (let i = 0; i < 10; i++) {
     customerName: faker.name.findName(),
     imagesUrl: images,
     reviewStars: faker.random.number(5),
-    reviewTitle: faker.lorem.sentence(),
-    reviewContent: faker.lorem.paragraph(),
+    reviewTitle: faker.company.catchPhrase(),
+    reviewContent: faker.hacker.phrase(),
     createdDate: faker.date.past(5)
   });
   customerInfo.save((err, data) => {
