@@ -2,7 +2,6 @@
 const express = require('express');
 // Import the path module from node to create absolute file paths for express static
 const path = require('path');
-const faker = require('faker');
 const CustomerImage = require('../database/index.js');
 // Instantiate the express server
 const app = express();
