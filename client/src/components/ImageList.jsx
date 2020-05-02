@@ -1,32 +1,34 @@
 import React from 'react';
+import Popup from 'reactjs-popup';
 
 class ImageList extends React.Component {
   constructor(props) {
     super(props);
-    this.renderImage = this.renderImage.bind(this);
-  }
-  renderImage(imageList) {
-    return (
-      <div>
-        <img src={this.props.imageList.imageUrl} />
-      </div>
-    );
   }
   render() {
     return (
       <div>
-        {this.props.imageList.map(image => this.renderImage(image.imageUrl))}
+        {this.props.imageList.map((images, index) => {
+          if (index < 1) {
+            return images.imagesUrl.map((image) => (
+              <span key={image.id}>
+                <Popup
+                  trigger={<button className='button'>
+                    <img style={{ width: 200, height: 180 }} src={image} />
+                  </button>}
+                  modal
+                  closeOnDocumentClick
+                >
+                  <span>Hello World!</span>
+                </Popup>
+              </span>
+
+            ));
+          }
+        })}
       </div>
     );
   }
 }
-// <div>
-//   {props.imageList.map(image => (
-//     <span>
-//       <img src={image.imageUrl} />
-//     </span>
-//   ))}
-// </div>
-
 
 export default ImageList;
