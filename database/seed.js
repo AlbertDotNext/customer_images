@@ -2,7 +2,11 @@ const CustomerImage = require('./index.js');
 const faker = require('faker/locale/en');
 faker.locale = 'en';
 
-let images = ['https://customerimage2020.s3-us-west-1.amazonaws.com/711KSkxhgiL.jpg', 'https://customerimage2020.s3-us-west-1.amazonaws.com/81u325t_IAL.jpg', 'https://customerimage2020.s3-us-west-1.amazonaws.com/7164sOEd2uL.jpg', 'https://customerimage2020.s3-us-west-1.amazonaws.com/813aPskuB3L.jpg'];
+const images = [];
+for (let j = 0; j < 4; j++) {
+  const imageId = (Math.floor(Math.random() * 116) + 1).toString();
+  images.push({image: `https://customerimage2020.s3-us-west-1.amazonaws.com/images${imageId}.jpg`});
+}
 
 for (let i = 0; i < 10; i++) {
   let customerInfo = new CustomerImage({
