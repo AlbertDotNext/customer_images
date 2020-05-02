@@ -1,8 +1,9 @@
 const CustomerImage = require('./index.js');
 const faker = require('faker/locale/en');
 faker.locale = 'en';
+
 let images = ['https://customerimage2020.s3-us-west-1.amazonaws.com/711KSkxhgiL.jpg', 'https://customerimage2020.s3-us-west-1.amazonaws.com/81u325t_IAL.jpg', 'https://customerimage2020.s3-us-west-1.amazonaws.com/7164sOEd2uL.jpg', 'https://customerimage2020.s3-us-west-1.amazonaws.com/813aPskuB3L.jpg'];
-console.log(images);
+
 for (let i = 0; i < 10; i++) {
   let customerInfo = new CustomerImage({
     customerName: faker.name.findName(),
