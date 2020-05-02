@@ -21,10 +21,6 @@ app.get('/images', (req, res) => {
       }
     });
 });
-// app.post('/', (req, res) => {
-//   res.redirect('/');
-// });
-
 
 const PORT = 3003;
 // Start the server on the provided port
