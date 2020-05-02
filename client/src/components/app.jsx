@@ -14,7 +14,6 @@ class App extends Component {
     this.getImage();
   }
   setImage({ data }) {
-    console.log(data);
     this.setState({imageList: data});
   }
   getImage() {
