@@ -12,8 +12,12 @@ class ImageGallery extends React.Component {
   handleClick(event) {
     event.preventDefault();
     console.log('click');
+    this.setState({ showGallery: true });
   }
   render() {
+    if (this.state.showGallery) {
+      let images = this.props.imageList;
+    }
     return (
       <span onClick={this.handleClick}>
         <IoMdApps size={30} />View Image Gallery
