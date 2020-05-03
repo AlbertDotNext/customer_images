@@ -1,6 +1,7 @@
 import React from 'react';
 import Popup from 'reactjs-popup';
 import ImageGallery from './ImageGallery.jsx';
+import ReviewContent from './reviewContent.jsx';
 
 class ImageList extends React.Component {
   constructor(props) {
@@ -20,12 +21,25 @@ class ImageList extends React.Component {
                   modal
                   closeOnDocumentClick
                 >
-                  <div className="imageGallery">
-                    <span><ImageGallery imageList={this.props.imageList}/></span>
-                  </div>
-                  <div className="content">
-                    <span>Hello World!</span>
-                  </div>
+                  {close => (
+                    <div className="modal">
+                      <a className="close" onClick={close}>
+                        &times;
+                      </a>
+                      <div>
+                        <span className="imageGallery"><ImageGallery imageList={this.props.imageList} /></span>
+                        <div className="reviewContent">
+                          <text style={{ fontweight: 'bold' }}><ReviewContent customerData={this.props.imageList} />{images.reviewTitle}</text>
+                          <br/>
+                          <text>By {images.customerName} on {images.createdDate}</text>
+                        </div>
+                      </div>
+                      <span className="content">
+                        <span>{<img style={{ width: 380, height: 300 }} src={imageObj.image} />}</span>
+
+                      </span>
+                    </div>
+                  )}
                 </Popup>
               </span>
 
