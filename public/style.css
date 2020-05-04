@@ -3,10 +3,14 @@
 }
 .imageGallery {
   cursor: pointer;
+  width: 100px;
+}
+.viewGallery {
+  width: 100%;
 }
 .reviewContent {
   position: relative;
-  text-align: right;
+  text-align: auto;
   margin-top: auto;
 }
 .modal > .close {
