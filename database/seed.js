@@ -1,8 +1,5 @@
 const CustomerImage = require('./index.js');
 const faker = require('faker');
-faker.locale = 'en_US';
-
-
 
 for (let i = 0; i < 10; i++) {
   const images = [];
