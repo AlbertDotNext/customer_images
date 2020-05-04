@@ -1,27 +1,23 @@
 import React from 'react';
-import { IoMdApps } from 'react-icons/io';
+import Popup from 'reactjs-popup';
+
+
 
 class ImageGallery extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showGallery: false
-    };
-    this.handleClick = this.handleClick.bind(this);
+
   }
-  handleClick(event) {
-    event.preventDefault();
-    console.log('click');
-    this.setState({ showGallery: true });
-  }
+
   render() {
-    if (this.state.showGallery) {
-      let images = this.props.imageList;
-    }
     return (
-      <span onClick={this.handleClick}>
-        <IoMdApps size={30} />View Image Gallery
-      </span>
+      <div className="viewGallery">
+        {this.props.customerData.map(imagesObj => {
+          return imagesObj.imagesUrl.map(imagesArr => {
+            return <img style={{ width: 100, height: 80 }} src={imagesArr.image} />;
+          });
+        })}
+      </div>
     );
   }
 }
