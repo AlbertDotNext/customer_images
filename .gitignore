@@ -2,8 +2,8 @@ node_modules
 
 bundle.js
 
-coverage/
-
+coverage/lcov-report
+coverage/*
 ## API keys ##
 database/config/config.js
 compiled/config/config.js
