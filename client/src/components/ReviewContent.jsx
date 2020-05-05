@@ -17,7 +17,7 @@ class ReviewContent extends React.Component {
   }
   resetForm(event) {
     event.preventDefault();
-    this.setState({showGallery: false});
+    this.setState({ showGallery: false });
   }
   handleClick(event) {
     event.preventDefault();
@@ -30,7 +30,7 @@ class ReviewContent extends React.Component {
 
       <Popup
         trigger={<button className='button' >
-          <img style={{ width: 200, height: 180 }} src={this.props.image} onClick={this.resetForm}/>
+          <img style={{ width: 200, height: 180 }} src={this.props.image} onClick={this.resetForm} />
         </button>}
         modal
         closeOnDocumentClick
@@ -40,7 +40,7 @@ class ReviewContent extends React.Component {
             <a className="close" onClick={close} >
               &times;
             </a>
-            {this.state.showGallery ? <ImageGallery customerData={this.props.customerData} /> :
+            {this.state.showGallery ? <ImageGallery customerData={this.props.customerData} resetForm={this.resetForm}/> :
               <div>
                 <span className="imageGallery" onClick={this.handleClick}><IoMdApps size={30} />View Image Gallery</span>
 
@@ -76,14 +76,13 @@ class ReviewContent extends React.Component {
                 <span className="content">
                   <span>{<img style={{ width: 380, height: 300 }} src={this.props.image} />}</span>
                 </span>
+
               </div>
             }
+
           </div>
         )}
       </Popup>
-
-
-
     );
   }
 }

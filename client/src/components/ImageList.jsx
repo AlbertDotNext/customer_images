@@ -8,7 +8,7 @@ class ImageList extends React.Component {
   render() {
     let count = 0;
     return (
-      <div>
+      <div className="imagelist">
         {this.props.imageList.map((images, index) => {
           return images.imagesUrl.map((imageObj) => {
             count++;
@@ -17,10 +17,8 @@ class ImageList extends React.Component {
                 <ReviewContent customerData={this.props.imageList} image={imageObj.image} images={images}/>
               </span>;
             }
-
           });
-        }
-        )}
+        })}
       </div >
     );
   }
