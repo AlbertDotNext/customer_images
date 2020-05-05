@@ -5,6 +5,9 @@
   cursor: pointer;
   width: 100px;
 }
+.galleryImage {
+  cursor: pointer;
+}
 .viewGallery {
   width: 100%;
 }
@@ -25,4 +28,10 @@
   background: #ffffff;
   border-radius: 18px;
   border: 1px solid #cfcece;
+}
+.modal {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+  height: 100%;
 }
