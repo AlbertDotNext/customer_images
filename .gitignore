@@ -2,9 +2,10 @@ node_modules
 
 bundle.js
 
+coverage/
+
 ## API keys ##
 database/config/config.js
 compiled/config/config.js
 
 
-coverage
