@@ -5,3 +5,6 @@ bundle.js
 ## API keys ##
 database/config/config.js
 compiled/config/config.js
+
+
+coverage
