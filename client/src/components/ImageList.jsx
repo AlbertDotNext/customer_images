@@ -14,7 +14,10 @@ class ImageList extends React.Component {
             count++;
             if (count <= 4) {
               return < span key={imageObj.id} >
-                <ReviewContent customerData={this.props.imageList} image={imageObj.image} images={images}/>
+                <ReviewContent
+                  customerData={this.props.imageList}
+                  image={imageObj.image}
+                  images={images} />
               </span>;
             }
           });

@@ -42,7 +42,11 @@ class ReviewContent extends React.Component {
             <a className="close" onClick={close} >
               &times;
             </a>
-            {this.state.showGallery ? <ImageGallery customerData={this.props.customerData} resetForm={this.resetForm} /> :
+            {this.state.showGallery ?
+              <ImageGallery
+                customerData={this.props.customerData}
+                resetForm={this.resetForm}
+              /> :
               <div>
                 <span className="imageGallery" onClick={this.handleClick}><IoMdApps size={30} />View Image Gallery</span>
 
@@ -65,7 +69,30 @@ class ReviewContent extends React.Component {
                             <FaRegStar size={20} style={{ color: 'orange' }} />
                             <FaRegStar size={20} style={{ color: 'orange' }} />
                           </span>
-                          : null
+                          : this.props.images.reviewStars === 3 ?
+                            <span>
+                              <FaStar size={20} style={{ color: 'orange' }} />
+                              <FaStar size={20} style={{ color: 'orange' }} />
+                              <FaStar size={20} style={{ color: 'orange' }} />
+                              <FaRegStar size={20} style={{ color: 'orange' }} />
+                              <FaRegStar size={20} style={{ color: 'orange' }} />
+                            </span>
+                            : this.props.images.reviewStars === 4 ?
+                              <span>
+                                <FaStar size={20} style={{ color: 'orange' }} />
+                                <FaStar size={20} style={{ color: 'orange' }} />
+                                <FaStar size={20} style={{ color: 'orange' }} />
+                                <FaStar size={20} style={{ color: 'orange' }} />
+                                <FaRegStar size={20} style={{ color: 'orange' }} />
+                              </span>
+                              : this.props.images.reviewStars === 5 ?
+                                <span>
+                                  <FaStar size={20} style={{ color: 'orange' }} />
+                                  <FaStar size={20} style={{ color: 'orange' }} />
+                                  <FaStar size={20} style={{ color: 'orange' }} />
+                                  <FaStar size={20} style={{ color: 'orange' }} />
+                                  <FaStar size={20} style={{ color: 'orange' }} />
+                                </span> : null
                       }
                     </span>
                     {this.props.images.reviewTitle}
