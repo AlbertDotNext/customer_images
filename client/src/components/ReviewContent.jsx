@@ -45,6 +45,7 @@ class ReviewContent extends React.Component {
             {this.state.showGallery ?
               <ImageGallery
                 customerData={this.props.customerData}
+                images={this.props.images}
                 resetForm={this.resetForm}
               /> :
               <div>
