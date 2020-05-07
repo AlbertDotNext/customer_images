@@ -3,21 +3,12 @@ import Popup from 'reactjs-popup';
 import { IoMdApps } from 'react-icons/io';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import ReviewContent from './ReviewContent.jsx';
-<<<<<<< HEAD
-
-
-=======
->>>>>>> customerImage1
 
 class ImageGallery extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      // showReviewContent: false
-    };
 
   }
-
 
   render() {
     return (
