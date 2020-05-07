@@ -2,6 +2,7 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 import moment from 'moment';
 import ImageGallery from './ImageGallery.jsx';
+import ImageCarousel from './ImageCarousel.jsx';
 import SimpleImageSlider from 'react-simple-image-slider';
 import { IoMdApps } from 'react-icons/io';
 import { FaStar, FaRegStar } from 'react-icons/fa';
@@ -11,10 +12,12 @@ class ReviewContent extends React.Component {
     super(props);
     this.state = {
       showGallery: false,
+      showReviewContent: false
 
     };
     this.handleClick = this.handleClick.bind(this);
     this.resetForm = this.resetForm.bind(this);
+    this.handleClickImage = this.handleClickImage.bind(this);
   }
   resetForm(event) {
     event.preventDefault();
@@ -25,6 +28,10 @@ class ReviewContent extends React.Component {
     this.setState({
       showGallery: true
     });
+  }
+  handleClickImage(event) {
+    event.preventDefault();
+    this.setState({ showReviewContent: true });
   }
   render() {
 
@@ -47,67 +54,73 @@ class ReviewContent extends React.Component {
                 customerData={this.props.customerData}
                 images={this.props.images}
                 resetForm={this.resetForm}
+                handleClickImage={this.handleClickImage}
+                showReviewContent={this.state.showReviewContent}
               /> :
-              <div>
+              <div className="parentDiv">
                 <span className="imageGallery" onClick={this.handleClick}><IoMdApps size={30} />View Image Gallery</span>
 
                 <div className="reviewContent">
-                  <text style={{ fontweight: 'bold' }}>
-                    <span className="stars">
-                      {this.props.images.reviewStars === 1 ?
-                        <span>
-                          <FaStar size={20} style={{ color: 'orange' }} />
-                          <FaRegStar size={20} style={{ color: 'orange' }} />
-                          <FaRegStar size={20} style={{ color: 'orange' }} />
-                          <FaRegStar size={20} style={{ color: 'orange' }} />
-                          <FaRegStar size={20} style={{ color: 'orange' }} />
-                        </span>
-                        : this.props.images.reviewStars === 2 ?
+                  <div className="RightBlock">
+                    <text style={{ fontweight: 'bold' }}>
+                      <span className="stars">
+                        {this.props.images.reviewStars === 1 ?
                           <span>
                             <FaStar size={20} style={{ color: 'orange' }} />
-                            <FaStar size={20} style={{ color: 'orange' }} />
+                            <FaRegStar size={20} style={{ color: 'orange' }} />
                             <FaRegStar size={20} style={{ color: 'orange' }} />
                             <FaRegStar size={20} style={{ color: 'orange' }} />
                             <FaRegStar size={20} style={{ color: 'orange' }} />
                           </span>
-                          : this.props.images.reviewStars === 3 ?
+                          : this.props.images.reviewStars === 2 ?
                             <span>
                               <FaStar size={20} style={{ color: 'orange' }} />
                               <FaStar size={20} style={{ color: 'orange' }} />
-                              <FaStar size={20} style={{ color: 'orange' }} />
+                              <FaRegStar size={20} style={{ color: 'orange' }} />
                               <FaRegStar size={20} style={{ color: 'orange' }} />
                               <FaRegStar size={20} style={{ color: 'orange' }} />
                             </span>
-                            : this.props.images.reviewStars === 4 ?
+                            : this.props.images.reviewStars === 3 ?
                               <span>
                                 <FaStar size={20} style={{ color: 'orange' }} />
                                 <FaStar size={20} style={{ color: 'orange' }} />
                                 <FaStar size={20} style={{ color: 'orange' }} />
-                                <FaStar size={20} style={{ color: 'orange' }} />
+                                <FaRegStar size={20} style={{ color: 'orange' }} />
                                 <FaRegStar size={20} style={{ color: 'orange' }} />
                               </span>
-                              : this.props.images.reviewStars === 5 ?
+                              : this.props.images.reviewStars === 4 ?
                                 <span>
                                   <FaStar size={20} style={{ color: 'orange' }} />
                                   <FaStar size={20} style={{ color: 'orange' }} />
                                   <FaStar size={20} style={{ color: 'orange' }} />
                                   <FaStar size={20} style={{ color: 'orange' }} />
-                                  <FaStar size={20} style={{ color: 'orange' }} />
-                                </span> : null
-                      }
-                    </span>
-                    {this.props.images.reviewTitle}
-                  </text>
-                  <br />
-                  <text>By {this.props.images.customerName} on {moment(this.props.images.createdDate).format('LL')}</text>
-                  <br />
-                  <text>{this.props.images.reviewContent}</text>
+                                  <FaRegStar size={20} style={{ color: 'orange' }} />
+                                </span>
+                                : this.props.images.reviewStars === 5 ?
+                                  <span>
+                                    <FaStar size={20} style={{ color: 'orange' }} />
+                                    <FaStar size={20} style={{ color: 'orange' }} />
+                                    <FaStar size={20} style={{ color: 'orange' }} />
+                                    <FaStar size={20} style={{ color: 'orange' }} />
+                                    <FaStar size={20} style={{ color: 'orange' }} />
+                                  </span> : null
+                        }
+                      </span>
+                      {this.props.images.reviewTitle}
+                    </text>
+                    <br />
+                    <text className="cusomerInfo">By {this.props.images.customerName} on {moment(this.props.images.createdDate).format('LL')}</text>
+                    <br />
+                    <text className="content">{this.props.images.reviewContent}</text>
+                  </div>
+                  <div className="imageContent">
+                    <ImageCarousel customerData={this.props.customerData} />
+                    {/* {<img style={{ width: 380, height: 300 }} src={this.props.image} />} */}
+
+                  </div>
+                  <div className="thumbnail">Images in this review</div>
+                  <img className="imageThumbnail" style={{width: 80, height: 80 }} src={this.props.image}/>
                 </div>
-                <span className="content">
-
-                  {<img style={{ width: 380, height: 300 }} src={this.props.image} />}
-
-                </span>
 
               </div>
             }
