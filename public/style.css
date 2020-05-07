@@ -15,6 +15,12 @@
   position: relative;
   text-align: auto;
   margin-top: auto;
+  display: flex;
+  flex-flow: column wrap;
+  height: 100%;
+}
+.stars .customerInfo .content .imageContent {
+  width: 40%;
 }
 .modal > .close {
   cursor: pointer;
@@ -29,9 +35,45 @@
   border-radius: 18px;
   border: 1px solid #cfcece;
 }
-.modal {
+/* .parentDiv {
   display: flex;
   flex-wrap: wrap;
   align-content: stretch;
   height: 100%;
+} */
+
+/* .RightBlock {
+  width: 40%;
+  height: 40%;
+} */
+/* .imageContent {
+  width: 30%;
+} */
+
+.carousel {
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+.image-slide {
+  height: 100%;
+  width: 100%;
+  transition: background-image .3s ease-in-out;
+}
+
+.slide-arrow {
+  color: #5ca1e1;
+  cursor: pointer;
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+}
+
+.slide-arrow.right {
+  right: 250px;
+}
+
+.slide-arrow.left {
+  left: 0px;
 }
