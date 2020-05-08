@@ -7,44 +7,48 @@ class IamgeCarousel extends React.Component {
     super(props);
     this.state = {
       currentImageIndex: 0,
-      imgUrls: ''
+      currentId: ''
+      // imgUrls: []
     };
     this.nextSlide = this.nextSlide.bind(this);
     this.previousSlide = this.previousSlide.bind(this);
-    this.setData = this.setData.bind(this);
+    // this.setData = this.setData.bind(this);
+
   }
-  componentDidMount() {
-    this.setData();
-  }
-  setData() {
-    let imgUrls = [];
-    let mapData = this.props.customerData.map(imagesObj => {
-      imagesObj.imagesUrl.map(imagesArr => {
-        imgUrls.push(imagesArr.image);
-      });
-    });
-    console.log(imgUrls);
-    this.setState({imgUrls});
-  }
+  // componentDidMount() {
+  //   this.setData();
+  // }
+  // setData() {
+  //   let imgUrls = [];
+  //   let mapData = this.props.customerData.map(imagesObj => {
+  //     imagesObj.imagesUrl.map(imagesArr => {
+  //       imgUrls.push({ id: imagesObj._id, urls: imagesArr.image });
+  //     });
+  //   });
+
+  //   this.setState({imgUrls});
+  // }
   previousSlide() {
-    const lastIndex = this.state.imgUrls.length - 1;
+    const lastIndex = this.props.imgUrls.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === 0;
     const index = shouldResetIndex ? lastIndex : currentImageIndex - 1;
 
     this.setState({
-      currentImageIndex: index
+      currentImageIndex: index,
+      currentId: this.props.imgUrls[index].id
     });
   }
 
   nextSlide() {
-    const lastIndex = this.state.imgUrls.length - 1;
+    const lastIndex = this.props.imgUrls.length - 1;
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === lastIndex;
     const index = shouldResetIndex ? 0 : currentImageIndex + 1;
 
     this.setState({
-      currentImageIndex: index
+      currentImageIndex: index,
+      currentId: this.props.imgUrls[index].id
     });
   }
 
@@ -55,8 +59,8 @@ class IamgeCarousel extends React.Component {
           direction="left"
           clickFunction={this.previousSlide}
           glyph="&#9664;" />
-
-        <ImageSlide url={this.state.imgUrls[this.state.currentImageIndex]} />
+        {console.log(this.state.currentId)}
+        <ImageSlide url={this.props.imgUrls[this.state.currentImageIndex].urls} />
 
         <Arrow
           direction="right"
