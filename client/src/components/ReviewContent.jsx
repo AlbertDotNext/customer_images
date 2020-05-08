@@ -3,7 +3,6 @@ import Popup from 'reactjs-popup';
 import moment from 'moment';
 import ImageGallery from './ImageGallery.jsx';
 import ImageCarousel from './ImageCarousel.jsx';
-import SimpleImageSlider from 'react-simple-image-slider';
 import { IoMdApps } from 'react-icons/io';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 
@@ -19,7 +18,7 @@ class ReviewContent extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.resetForm = this.resetForm.bind(this);
     this.handleClickImage = this.handleClickImage.bind(this);
-    this.setData = this.setData.bind(this);
+    // this.setData = this.setData.bind(this);
   }
   resetForm(event) {
     event.preventDefault();
@@ -35,26 +34,26 @@ class ReviewContent extends React.Component {
     event.preventDefault();
     this.setState({ showReviewContent: true });
   }
-  componentDidMount() {
-    this.setData();
-  }
-  setData() {
-    let imgUrls = [];
-    let mapData = this.props.customerData.map(imagesObj => {
-      imagesObj.imagesUrl.map(imagesArr => {
-        imgUrls.push({ id: imagesObj._id, urls: imagesArr.image });
-      });
-    });
+  // componentDidMount() {
+  //   this.setData();
+  // }
+  // setData() {
+  //   let imgUrls = [];
+  //   let mapData = this.props.customerData.map(imagesObj => {
+  //     imagesObj.imagesUrl.map(imagesArr => {
+  //       imgUrls.push({ id: imagesObj._id, urls: imagesArr.image });
+  //     });
+  //   });
 
-    this.setState({imgUrls});
-  }
+  //   this.setState({imgUrls});
+  // }
   render() {
 
     return (
 
       <Popup
         trigger={<button className='button' >
-          <img className="imageView" style={{ width: 200, height: 180 }} src={this.props.image} onClick={this.resetForm} />
+          <img className="imageView" style={{ width: 200, height: 180 }} src={this.props.image.slice(0, 4)} />
         </button>}
         modal
         closeOnDocumentClick
@@ -64,7 +63,7 @@ class ReviewContent extends React.Component {
             <a className="close" onClick={close} >
               &times;
             </a>
-            {this.state.showGallery ?
+            {/* {this.state.showGallery ?
               <ImageGallery
                 customerData={this.props.customerData}
                 images={this.props.images}
@@ -130,15 +129,13 @@ class ReviewContent extends React.Component {
                   </div>
                   <div className="imageContent">
                     <ImageCarousel imgUrls={this.state.imgUrls}/>
-                    {/* {<img style={{ width: 380, height: 300 }} src={this.props.image} />} */}
-
                   </div>
                   <div className="thumbnail">Images in this review</div>
                   <img className="imageThumbnail" style={{width: 80, height: 80 }} src={this.props.image}/>
                 </div>
 
               </div>
-            }
+            } */}
 
           </div>
         )}

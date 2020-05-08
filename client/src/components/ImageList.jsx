@@ -1,27 +1,30 @@
 import React from 'react';
 import ReviewContent from './reviewContent.jsx';
+import ImagePreview from './ImagePreview.jsx';
 
 class ImageList extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      popUp: false
+    };
+    this.popUpClick = this.popUpClick.bind(this);
+  }
+  popUpClick(event) {
+    event.preventDefault();
+    this.setState({popUp: true});
   }
   render() {
-    let count = 0;
     return (
       <div className="imagelist">
-        {this.props.imageList.map((images, index) => {
-          return images.imagesUrl.map((imageObj) => {
-            count++;
-            if (count <= 4) {
-              return < span key={imageObj.id} >
-                <ReviewContent
-                  customerData={this.props.imageList}
-                  image={imageObj.image}
-                  images={images} />
-              </span>;
-            }
+        {this.state.popUp ? this.props.imageList.map((imagesObj, index) => {
+          return imagesObj.imagesUrl.map((imageArr) => {
+            return <ReviewContent
+              image={imageArr}
+              popUpClick={this.popUpClick}
+            />;
           });
-        })}
+        }) : <ImagePreview imageList={this.props.imageList} popUpClick={this.popUpClick}/>}
       </div >
     );
   }

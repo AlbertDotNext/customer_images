@@ -5,6 +5,9 @@
   cursor: pointer;
   width: 100px;
 }
+.imagePreview {
+  cursor: pointer;
+}
 .galleryImage {
   cursor: pointer;
 }
@@ -35,20 +38,6 @@
   border-radius: 18px;
   border: 1px solid #cfcece;
 }
-/* .parentDiv {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: stretch;
-  height: 100%;
-} */
-
-/* .RightBlock {
-  width: 40%;
-  height: 40%;
-} */
-/* .imageContent {
-  width: 30%;
-} */
 
 .carousel {
   height: 100%;
