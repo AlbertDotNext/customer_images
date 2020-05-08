@@ -12,12 +12,14 @@ class ReviewContent extends React.Component {
     super(props);
     this.state = {
       showGallery: false,
-      showReviewContent: false
+      showReviewContent: false,
+      imgUrls: []
 
     };
     this.handleClick = this.handleClick.bind(this);
     this.resetForm = this.resetForm.bind(this);
     this.handleClickImage = this.handleClickImage.bind(this);
+    this.setData = this.setData.bind(this);
   }
   resetForm(event) {
     event.preventDefault();
@@ -32,6 +34,19 @@ class ReviewContent extends React.Component {
   handleClickImage(event) {
     event.preventDefault();
     this.setState({ showReviewContent: true });
+  }
+  componentDidMount() {
+    this.setData();
+  }
+  setData() {
+    let imgUrls = [];
+    let mapData = this.props.customerData.map(imagesObj => {
+      imagesObj.imagesUrl.map(imagesArr => {
+        imgUrls.push({ id: imagesObj._id, urls: imagesArr.image });
+      });
+    });
+
+    this.setState({imgUrls});
   }
   render() {
 
@@ -114,7 +129,7 @@ class ReviewContent extends React.Component {
                     <text className="content">{this.props.images.reviewContent}</text>
                   </div>
                   <div className="imageContent">
-                    <ImageCarousel customerData={this.props.customerData} />
+                    <ImageCarousel imgUrls={this.state.imgUrls}/>
                     {/* {<img style={{ width: 380, height: 300 }} src={this.props.image} />} */}
 
                   </div>
