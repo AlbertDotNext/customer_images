@@ -53,7 +53,7 @@ class ReviewContent extends React.Component {
 
       <Popup
         trigger={<button className='button' >
-          <img className="imageView" style={{ width: 200, height: 180 }} src={this.props.image.slice(0, 4)} />
+          <img className="imageView" style={{ width: 200, height: 180 }} src={this.props.image} />
         </button>}
         modal
         closeOnDocumentClick
@@ -63,9 +63,8 @@ class ReviewContent extends React.Component {
             <a className="close" onClick={close} >
               &times;
             </a>
-            {/* {this.state.showGallery ?
+            {this.state.showGallery ?
               <ImageGallery
-                customerData={this.props.customerData}
                 images={this.props.images}
                 resetForm={this.resetForm}
                 handleClickImage={this.handleClickImage}
@@ -128,14 +127,14 @@ class ReviewContent extends React.Component {
                     <text className="content">{this.props.images.reviewContent}</text>
                   </div>
                   <div className="imageContent">
-                    <ImageCarousel imgUrls={this.state.imgUrls}/>
+                    <ImageCarousel imgUrls={this.state.imgUrls} />
                   </div>
                   <div className="thumbnail">Images in this review</div>
-                  <img className="imageThumbnail" style={{width: 80, height: 80 }} src={this.props.image}/>
+                  <img className="imageThumbnail" style={{ width: 80, height: 80 }} src={this.props.image} />
                 </div>
 
               </div>
-            } */}
+            }
 
           </div>
         )}
