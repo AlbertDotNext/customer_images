@@ -1,6 +1,5 @@
 import React from 'react';
 import ReviewContent from './reviewContent.jsx';
-import ImagePreview from './ImagePreview.jsx';
 import Popup from 'reactjs-popup';
 
 class ImageList extends React.Component {
@@ -18,14 +17,20 @@ class ImageList extends React.Component {
   render() {
     return (
       <div className="imagelist">
-        {this.state.popUp ? this.props.imageList.map((imagesObj, index) => {
+        {this.props.imageList.map((imagesObj, index) => {
           return imagesObj.imagesUrl.map((imageArr) => {
             return <ReviewContent
               image={imageArr.image}
               images={imagesObj}
+              customerName={imagesObj.customerName}
+              reviewStars={imagesObj.reviewStars}
+              reviewTitle={imagesObj.reviewTitle}
+              reviewContent={imagesObj.reviewContent}
+              createdDate={imagesObj.createdDate}
+              customerData={this.props.imageList}
             />;
           });
-        }) : <ImagePreview imageList={this.props.imageList} popUpClick={this.popUpClick} />}
+        })}
       </div >
     );
   }

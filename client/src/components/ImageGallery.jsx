@@ -16,7 +16,12 @@ class ImageGallery extends React.Component {
         {console.log(this.props.images)}
         {this.props.showReviewContent ?
           <ReviewContent />
-          : 'hello'}
+          : this.props.customerData.map(imagesObj => {
+            return imagesObj.imagesUrl.map(imagesArr => {
+              return <img className="galleryImage" style={{ width: 100, height: 80 }} src={imagesArr.image} onClick={this.props.handleClickImage} onClick={this.props.resetForm}/>;
+            });
+          })}
+
       </div>
     );
   }

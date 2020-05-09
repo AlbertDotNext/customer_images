@@ -3,6 +3,8 @@ import Popup from 'reactjs-popup';
 import moment from 'moment';
 import ImageGallery from './ImageGallery.jsx';
 import ImageCarousel from './ImageCarousel.jsx';
+import ImagePreview from './ImagePreview.jsx';
+import ImageReview from './ImageReview.jsx';
 import { IoMdApps } from 'react-icons/io';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 
@@ -34,26 +36,26 @@ class ReviewContent extends React.Component {
     event.preventDefault();
     this.setState({ showReviewContent: true });
   }
-  // componentDidMount() {
-  //   this.setData();
-  // }
-  // setData() {
-  //   let imgUrls = [];
-  //   let mapData = this.props.customerData.map(imagesObj => {
-  //     imagesObj.imagesUrl.map(imagesArr => {
-  //       imgUrls.push({ id: imagesObj._id, urls: imagesArr.image });
-  //     });
-  //   });
+  componentDidMount() {
+    this.setData();
+  }
+  setData() {
+    let imgUrls = [];
+    let mapData = this.props.customerData.map(imagesObj => {
+      imagesObj.imagesUrl.map(imagesArr => {
+        imgUrls.push({ id: imagesObj._id, urls: imagesArr.image });
+      });
+    });
 
-  //   this.setState({imgUrls});
-  // }
+    this.setState({imgUrls});
+  }
   render() {
 
     return (
 
       <Popup
         trigger={<button className='button' >
-          <img className="imageView" style={{ width: 200, height: 180 }} src={this.props.image} />
+          <ImagePreview image={this.props.image}/>
         </button>}
         modal
         closeOnDocumentClick
@@ -65,7 +67,7 @@ class ReviewContent extends React.Component {
             </a>
             {this.state.showGallery ?
               <ImageGallery
-                images={this.props.images}
+                customerData={this.props.customerData}
                 resetForm={this.resetForm}
                 handleClickImage={this.handleClickImage}
                 showReviewContent={this.state.showReviewContent}
@@ -77,7 +79,7 @@ class ReviewContent extends React.Component {
                   <div className="RightBlock">
                     <text style={{ fontweight: 'bold' }}>
                       <span className="stars">
-                        {this.props.images.reviewStars === 1 ?
+                        {this.props.reviewStars === 1 ?
                           <span>
                             <FaStar size={20} style={{ color: 'orange' }} />
                             <FaRegStar size={20} style={{ color: 'orange' }} />
@@ -85,7 +87,7 @@ class ReviewContent extends React.Component {
                             <FaRegStar size={20} style={{ color: 'orange' }} />
                             <FaRegStar size={20} style={{ color: 'orange' }} />
                           </span>
-                          : this.props.images.reviewStars === 2 ?
+                          : this.props.reviewStars === 2 ?
                             <span>
                               <FaStar size={20} style={{ color: 'orange' }} />
                               <FaStar size={20} style={{ color: 'orange' }} />
@@ -93,7 +95,7 @@ class ReviewContent extends React.Component {
                               <FaRegStar size={20} style={{ color: 'orange' }} />
                               <FaRegStar size={20} style={{ color: 'orange' }} />
                             </span>
-                            : this.props.images.reviewStars === 3 ?
+                            : this.props.reviewStars === 3 ?
                               <span>
                                 <FaStar size={20} style={{ color: 'orange' }} />
                                 <FaStar size={20} style={{ color: 'orange' }} />
@@ -101,7 +103,7 @@ class ReviewContent extends React.Component {
                                 <FaRegStar size={20} style={{ color: 'orange' }} />
                                 <FaRegStar size={20} style={{ color: 'orange' }} />
                               </span>
-                              : this.props.images.reviewStars === 4 ?
+                              : this.props.reviewStars === 4 ?
                                 <span>
                                   <FaStar size={20} style={{ color: 'orange' }} />
                                   <FaStar size={20} style={{ color: 'orange' }} />
@@ -109,7 +111,7 @@ class ReviewContent extends React.Component {
                                   <FaStar size={20} style={{ color: 'orange' }} />
                                   <FaRegStar size={20} style={{ color: 'orange' }} />
                                 </span>
-                                : this.props.images.reviewStars === 5 ?
+                                : this.props.reviewStars === 5 ?
                                   <span>
                                     <FaStar size={20} style={{ color: 'orange' }} />
                                     <FaStar size={20} style={{ color: 'orange' }} />
@@ -119,18 +121,18 @@ class ReviewContent extends React.Component {
                                   </span> : null
                         }
                       </span>
-                      {this.props.images.reviewTitle}
+                      {this.props.reviewTitle}
                     </text>
                     <br />
-                    <text className="cusomerInfo">By {this.props.images.customerName} on {moment(this.props.images.createdDate).format('LL')}</text>
+                    <text className="cusomerInfo">By {this.props.customerName} on {moment(this.props.createdDate).format('LL')}</text>
                     <br />
-                    <text className="content">{this.props.images.reviewContent}</text>
+                    <text className="content">{this.props.reviewContent}</text>
                   </div>
                   <div className="imageContent">
-                    <ImageCarousel imgUrls={this.state.imgUrls} />
+                    <ImageCarousel image={this.props.image} id={this.props.images._id} imgUrls={this.state.imgUrls} />
                   </div>
                   <div className="thumbnail">Images in this review</div>
-                  <img className="imageThumbnail" style={{ width: 80, height: 80 }} src={this.props.image} />
+                  <ImageReview id={this.props.images._id} customerData={this.props.customerData}/>
                 </div>
 
               </div>
