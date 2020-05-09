@@ -10,6 +10,7 @@ class ImagePreview extends React.Component {
     return (
       <div>
         {
+
           <img className="imagePreview" style={{ width: 200, height: 180 }} src={this.props.image} />
 
         }

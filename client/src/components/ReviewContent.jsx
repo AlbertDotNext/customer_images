@@ -14,12 +14,14 @@ class ReviewContent extends React.Component {
     this.state = {
       showGallery: false,
       showReviewContent: false,
-      imgUrls: []
+      imgUrls: [],
+      imageReviewState: ''
 
     };
     this.handleClick = this.handleClick.bind(this);
     this.resetForm = this.resetForm.bind(this);
     this.handleClickImage = this.handleClickImage.bind(this);
+    this.getImageUrl = this.getImageUrl.bind(this);
     // this.setData = this.setData.bind(this);
   }
   resetForm(event) {
@@ -38,6 +40,7 @@ class ReviewContent extends React.Component {
   }
   componentDidMount() {
     this.setData();
+    this.setState({ imageReviewState: this.props.image });
   }
   setData() {
     let imgUrls = [];
@@ -47,7 +50,10 @@ class ReviewContent extends React.Component {
       });
     });
 
-    this.setState({imgUrls});
+    this.setState({ imgUrls });
+  }
+  getImageUrl(url) {
+    this.setState({ imageReviewState: url });
   }
   render() {
 
@@ -55,7 +61,9 @@ class ReviewContent extends React.Component {
 
       <Popup
         trigger={<button className='button' >
-          <ImagePreview image={this.props.image}/>
+          {this.props.count <= 4 ?
+            <ImagePreview image={this.props.image} /> : null
+          }
         </button>}
         modal
         closeOnDocumentClick
@@ -129,10 +137,10 @@ class ReviewContent extends React.Component {
                     <text className="content">{this.props.reviewContent}</text>
                   </div>
                   <div className="imageContent">
-                    <ImageCarousel image={this.props.image} id={this.props.images._id} imgUrls={this.state.imgUrls} />
+                    <ImageCarousel image={this.state.imageReviewState} id={this.props.images._id} imgUrls={this.state.imgUrls} />
                   </div>
                   <div className="thumbnail">Images in this review</div>
-                  <ImageReview id={this.props.images._id} customerData={this.props.customerData}/>
+                  <ImageReview id={this.props.images._id} customerData={this.props.customerData} getImageUrl={this.getImageUrl} />
                 </div>
 
               </div>

@@ -1,7 +1,8 @@
 import React from 'react';
 import ImageSlide from './ImageSlide.jsx';
 import Arrow from './Arrow.jsx';
-import ImageReview from './ImageReview.jsx';
+
+
 
 class IamgeCarousel extends React.Component {
   constructor(props) {
@@ -9,29 +10,27 @@ class IamgeCarousel extends React.Component {
     this.state = {
       currentImageIndex: 0,
       currentId: this.props.id,
-      imageChange: false
-      // imgUrls: []
+      imageChange: false,
+      imageUrl: this.props.image
+
     };
     this.nextSlide = this.nextSlide.bind(this);
     this.previousSlide = this.previousSlide.bind(this);
     this.handleClickImage = this.handleClickImage.bind(this);
     this.checkIndex = this.checkIndex.bind(this);
-    // this.setData = this.setData.bind(this);
+
 
   }
   componentDidMount() {
     this.checkIndex();
   }
-  // setData() {
-  //   let imgUrls = [];
-  //   let mapData = this.props.customerData.map(imagesObj => {
-  //     imagesObj.imagesUrl.map(imagesArr => {
-  //       imgUrls.push({ id: imagesObj._id, urls: imagesArr.image });
-  //     });
-  //   });
+  componentDidUpdate(prevProps) {
+    if (prevProps.image !== this.props.image) {
+      this.setState({ imageUrl: this.props.image });
+      this.checkIndex();
+    }
 
-  //   this.setState({imgUrls});
-  // }
+  }
   previousSlide() {
     const lastIndex = this.props.imgUrls.length - 1;
     const { currentImageIndex } = this.state;
@@ -61,8 +60,10 @@ class IamgeCarousel extends React.Component {
   }
   checkIndex() {
     let index = this.props.imgUrls.findIndex(x => x.urls === this.props.image && x.id === this.props.id);
-    this.setState({currentImageIndex: index});
+    this.setState({ currentImageIndex: index });
+
   }
+
   render() {
     return (
       <div className="carousel">
@@ -70,7 +71,7 @@ class IamgeCarousel extends React.Component {
           direction="left"
           clickFunction={this.previousSlide}
           glyph="&#9664;" />
-
+        {console.log(this.state.currentImageIndex)}
         <ImageSlide url={this.props.imgUrls[this.state.currentImageIndex].urls} />
 
         <Arrow

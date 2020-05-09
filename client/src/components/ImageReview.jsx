@@ -1,17 +1,23 @@
 import React from 'react';
 
+
 class ImageReview extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
   }
+  handleClick(event) {
 
+    let imgReviewUrl = event.target.getAttribute('src');
+    this.props.getImageUrl(imgReviewUrl);
+  }
   render() {
     return (
       <div>
         {this.props.customerData.map(imagesObj => {
           if (this.props.id === imagesObj._id) {
             return imagesObj.imagesUrl.map(imageArr => {
-              return <img className="imageThumbnail" style={{ width: 80, height: 80 }} src={imageArr.image} onClick={this.props.handleClickImage}/>;
+              return <img className="imageThumbnail" style={{ width: 80, height: 80 }} src={imageArr.image} onClick={this.handleClick} />;
             });
           }
         })}

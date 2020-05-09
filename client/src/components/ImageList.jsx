@@ -8,18 +8,19 @@ class ImageList extends React.Component {
     this.state = {
       popUp: false
     };
-    this.popUpClick = this.popUpClick.bind(this);
+
   }
-  popUpClick(event) {
-    event.preventDefault();
-    this.setState({ popUp: true });
-  }
+
+
   render() {
+    let count = 0;
     return (
       <div className="imagelist">
         {this.props.imageList.map((imagesObj, index) => {
           return imagesObj.imagesUrl.map((imageArr) => {
+            count++;
             return <ReviewContent
+              count={count}
               image={imageArr.image}
               images={imagesObj}
               customerName={imagesObj.customerName}
