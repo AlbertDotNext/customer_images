@@ -19,17 +19,18 @@ class ImageList extends React.Component {
         {this.props.imageList.map((imagesObj, index) => {
           return imagesObj.imagesUrl.map((imageArr) => {
             count++;
-            return <ReviewContent
-              count={count}
-              image={imageArr.image}
-              images={imagesObj}
-              customerName={imagesObj.customerName}
-              reviewStars={imagesObj.reviewStars}
-              reviewTitle={imagesObj.reviewTitle}
-              reviewContent={imagesObj.reviewContent}
-              createdDate={imagesObj.createdDate}
-              customerData={this.props.imageList}
-            />;
+            if (count <= 4) {
+              return <ReviewContent
+                image={imageArr.image}
+                images={imagesObj}
+                customerName={imagesObj.customerName}
+                reviewStars={imagesObj.reviewStars}
+                reviewTitle={imagesObj.reviewTitle}
+                reviewContent={imagesObj.reviewContent}
+                createdDate={imagesObj.createdDate}
+                customerData={this.props.imageList}
+              />;
+            }
           });
         })}
       </div >

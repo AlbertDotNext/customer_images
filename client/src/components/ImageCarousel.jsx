@@ -1,9 +1,20 @@
 import React from 'react';
 import ImageSlide from './ImageSlide.jsx';
 import Arrow from './Arrow.jsx';
+import styled from 'styled-components';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-
-
+const Carousel = styled.div`
+  height: 100%;
+  margin: 0;
+  width: 100%;
+`;
+const Left = styled.p`
+  left: 0px;
+`;
+const Right = styled.p`
+ right: 500px;
+ `;
 class IamgeCarousel extends React.Component {
   constructor(props) {
     super(props);
@@ -41,6 +52,7 @@ class IamgeCarousel extends React.Component {
       currentImageIndex: index,
       currentId: this.props.imgUrls[index].id
     });
+    this.props.getCarouselId(this.state.currentId);
   }
 
   nextSlide() {
@@ -53,6 +65,7 @@ class IamgeCarousel extends React.Component {
       currentImageIndex: index,
       currentId: this.props.imgUrls[index].id
     });
+    this.props.getCarouselId(this.state.currentId);
   }
   handleClickImage(e) {
     e.preventDefault();
@@ -61,24 +74,31 @@ class IamgeCarousel extends React.Component {
   checkIndex() {
     let index = this.props.imgUrls.findIndex(x => x.urls === this.props.image && x.id === this.props.id);
     this.setState({ currentImageIndex: index });
+    this.props.getCarouselId(this.state.currentId);
 
   }
 
   render() {
     return (
-      <div className="carousel">
-        <Arrow
-          direction="left"
-          clickFunction={this.previousSlide}
-          glyph="&#9664;" />
-        {console.log(this.state.currentImageIndex)}
-        <ImageSlide url={this.props.imgUrls[this.state.currentImageIndex].urls} />
+      <Carousel>
+        <Left>
+          <Arrow
+            direction="left"
+            clickFunction={this.previousSlide}
+            glyph="&#9664;" />
 
-        <Arrow
-          direction="right"
-          clickFunction={this.nextSlide}
-          glyph="&#9654;" />
-      </div>
+        </Left>
+
+        <ImageSlide url={this.props.imgUrls[this.state.currentImageIndex].urls} />
+        <Right>
+          <Arrow
+            direction="right"
+            clickFunction={this.nextSlide}
+            glyph="&#9654;" />
+
+        </Right>
+
+      </Carousel>
     );
   }
 }

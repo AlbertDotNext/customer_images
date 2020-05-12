@@ -1,5 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
 
+const Imagepreview = styled.img`
+  cursor: pointer;
+`;
 class ImagePreview extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +15,7 @@ class ImagePreview extends React.Component {
       <div>
         {
 
-          <img className="imagePreview" style={{ width: 200, height: 180 }} src={this.props.image} />
+          <Imagepreview style={{ width: 200, height: 180 }} src={this.props.image} />
 
         }
       </div>

@@ -1,6 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
 
-
+const Imagethumbnail = styled.img`
+  cursor:pointer;
+`;
 class ImageReview extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +20,7 @@ class ImageReview extends React.Component {
         {this.props.customerData.map(imagesObj => {
           if (this.props.id === imagesObj._id) {
             return imagesObj.imagesUrl.map(imageArr => {
-              return <img className="imageThumbnail" style={{ width: 80, height: 80 }} src={imageArr.image} onClick={this.handleClick} />;
+              return <Imagethumbnail style={{ width: 80, height: 80 }} src={imageArr.image} onClick={this.handleClick} />;
             });
           }
         })}
