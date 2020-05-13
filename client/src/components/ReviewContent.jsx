@@ -57,18 +57,16 @@ class ReviewContent extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.resetForm = this.resetForm.bind(this);
-
     this.getImageUrl = this.getImageUrl.bind(this);
     this.getCarouselId = this.getCarouselId.bind(this);
     this.updateImagesObj = this.updateImagesObj.bind(this);
     this.resetId = this.resetId.bind(this);
-
-
   }
-  resetForm(event) {
-    // event.preventDefault();
+
+  resetForm() {
     this.setState({ showGallery: false });
   }
+
   handleClick(event) {
     event.preventDefault();
     this.setState({
@@ -88,16 +86,18 @@ class ReviewContent extends React.Component {
       });
     });
     return imgUrls;
-
   }
+
   getImageUrl(url) {
     this.setState({ imageReviewState: url });
   }
+
   getCarouselId(id) {
     this.setState({ reviewId: id });
     this.updateImagesObj(id);
 
   }
+
   updateImagesObj(id) {
     let reviewDecisionObj = this.props.customerData.filter(data => {
       if (id === data._id) {
@@ -106,8 +106,6 @@ class ReviewContent extends React.Component {
         return false;
       }
     });
-    console.log(id);
-    console.log(reviewDecisionObj);
     this.setState({
       customerName: reviewDecisionObj[0].customerName,
       reviewStars: reviewDecisionObj[0].reviewStars,
@@ -116,12 +114,14 @@ class ReviewContent extends React.Component {
       createdDate: reviewDecisionObj[0].createdDate
     });
   }
+
   resetId() {
     this.setState({
       reviewId: this.props.id,
       imageReviewState: this.props.image
     });
   }
+
   render() {
     return (
       <Popup

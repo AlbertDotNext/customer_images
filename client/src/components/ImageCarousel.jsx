@@ -24,18 +24,17 @@ class IamgeCarousel extends React.Component {
       currentId: this.props.id,
       imageChange: false,
       imageUrl: this.props.image
-
     };
     this.nextSlide = this.nextSlide.bind(this);
     this.previousSlide = this.previousSlide.bind(this);
     this.handleClickImage = this.handleClickImage.bind(this);
     this.checkIndex = this.checkIndex.bind(this);
-
-
   }
+
   componentDidMount() {
     this.checkIndex();
   }
+
   componentDidUpdate(prevProps) {
     if (prevProps.image !== this.props.image) {
       this.setState({ imageUrl: this.props.image });
@@ -43,6 +42,7 @@ class IamgeCarousel extends React.Component {
     }
 
   }
+
   previousSlide() {
     const lastIndex = this.props.imgUrls.length - 1;
     const { currentImageIndex } = this.state;
@@ -61,47 +61,44 @@ class IamgeCarousel extends React.Component {
     const { currentImageIndex } = this.state;
     const shouldResetIndex = currentImageIndex === lastIndex;
     const index = shouldResetIndex ? 0 : currentImageIndex + 1;
-
     this.setState({
       currentImageIndex: index,
       currentId: this.props.imgUrls[index].id
     });
     this.props.getCarouselId(this.props.imgUrls[index].id);
   }
+
   handleClickImage(e) {
     e.preventDefault();
     this.setState({ imageChange: true });
   }
-  checkIndex() {
 
+  checkIndex() {
     let index = this.props.imgUrls.findIndex(x => {
-      console.log(x.urls + ',' + this.props.image + ',' + x.id + ',' + this.props.id);
       return (x.urls === this.props.image && x.id === this.props.id);
     });
-
     this.setState({ currentImageIndex: index });
     this.props.getCarouselId(this.state.currentId);
-
   }
 
   render() {
     return (
       <Carousel>
+
         <Left>
           <Arrow
             direction="left"
             clickFunction={this.previousSlide}
             glyph="&#9664;" />
-
         </Left>
 
         <ImageSlide url={this.props.imgUrls[this.state.currentImageIndex].urls} />
+
         <Right>
           <Arrow
             direction="right"
             clickFunction={this.nextSlide}
             glyph="&#9654;" />
-
         </Right>
 
       </Carousel>
