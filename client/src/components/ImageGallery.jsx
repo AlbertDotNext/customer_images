@@ -2,7 +2,6 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 import { IoMdApps } from 'react-icons/io';
 import { FaStar, FaRegStar } from 'react-icons/fa';
-//import ReviewContent from './ReviewContent.jsx';
 import styled from 'styled-components';
 
 const Viewgallery = styled.div`
