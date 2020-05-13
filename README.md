@@ -10,26 +10,16 @@ Create a customer images module for front end group project
 ## Tech Stack
 All functionality in this project was built primarily with ReactJS on the front end, Node/Express on the back end, and MongoDB/MySQL for the database.
 
+<img src="https://lh3.googleusercontent.com/ZIHOUCCxFaB7NirPhEX4K8cyTPIMvxvdJxpuhjb_qJ_dk-z7qEgD8riaR0ODXzXQZYn23zHpFiwGzxTDT88FTLeUMoPqlIjyLKoL1am8MH5pCoJExjL8SUC8uaeeiAjvQB0_vym6" width="100"/>
+<img src="https://lh5.googleusercontent.com/_RcI-sgNRX5J0olXzRycjQN3tysoTXbH8kXRfE0AtBY8KkDrINApsrfZGAkczZYGwKTPZlYdJXQyKmWO4zFzvON9Op6Ovcu0GQxwabxWfGJH__oRB6YCC-qD_3b2yj_efkprD8UP" width="100" />
+<img src="https://lh5.googleusercontent.com/rdAoVdYKOCnmtev6t7DJrEY7mG4iYsRPqeTH0Z-OrlsVmiea3q5SMtOGNSa7HzJcyxcIcelTacG5gPNgyBoIviiNcLbohQAicvpldcfM32Klb_ewouDRd67OtYhUAU1CEZB4rBqB" width="100" />
+<img src="https://lh6.googleusercontent.com/tKlT8lGB2bTDqSilr_a2y8vaO-QBUdcUIYASnslf-RAKTxUEiEBq-_gTVBP0irIP1ZWNuSvp1fouOJrQBXUr0joVmBZzNyOec4jBpOyVogPZMOYhPH6YQwYOiLdZnfuaDnFel9rn" width="100" />
+<img src="https://cloud.mongodb.com/static/images/mdb_logo.svg" width='100'/>
 
-![ReactJS][logo]
-
-[logo]: https://camo.githubusercontent.com/35f8c905e77b1490208641cd2098daa9fac53dbf/68747470733a2f2f6c68332e676f6f676c6575736572636f6e74656e742e636f6d2f5a49484f55434378466142374e697250684558344b3863795450494d767876644a787075686a625f714a5f646b2d7a37714567443872696152304f44587a58515a596e32337a4870466977477a78544454383846544c65554d6f50716c496a794c4b6f4c31616d384d483570436f4a45786a4c38535543387561656569416a765142305f76796d36
-
-![Axios][logo1]
-
-[logo1]: https://camo.githubusercontent.com/b6111c48e7573c8d9f7be6a6b57b7600075d4fbb/68747470733a2f2f6c68352e676f6f676c6575736572636f6e74656e742e636f6d2f5f5263492d73674e5258354a306f6c587a5279636a514e337479736f54586248386b585266453041744259384b6b4472494e41707372665a47416b637a5a5947774b54505a6c59644a5851794b6d574f347a467a764f4e394f70364f76637530475178776162785766474a485f5f6f5242365943432d71445f336232796a5f65666b707244385550
-
-![NodeJS][logo2]
-
-[logo2]: https://camo.githubusercontent.com/1a730c07f1031f8e0fbf065f21898911e3264ff7/68747470733a2f2f6c68352e676f6f676c6575736572636f6e74656e742e636f6d2f7264416f5664594b4f436e6d746576367437444a724559376d4734695973525071655448305a2d4f726c73566d696561337135534d744f474e536137487a4a637978634963656c546163473567504e6779426f497669694e634c626f685141696376706c6463664d33324b6c625f65776f7544526436374f7459685541553143455a423472427142
-
-![ExpressJS][logo3]
-
-[logo3]: https://camo.githubusercontent.com/48f22ae8c62c36ee2f99fccb8d7fd9a300dbb893/68747470733a2f2f6c68362e676f6f676c6575736572636f6e74656e742e636f6d2f744b6c54386c4742326254447153696c725f6132793876614f2d514255646355495941536e736c662d52414b54785545694542712d5f67545642503069724950315a574e7553767031666f754f4a725142585572306a6f566d425a7a4e794f6563346a42704f79566f67505a4d4f5968504836595177594f694c645a6e667561446e46656c39726e
-
-![MongoDB][logo4]
-
-[logo4]:https://camo.githubusercontent.com/64e1368a9707a014728fa57ee30e9746ac9e3779/68747470733a2f2f636c6f75642e6d6f6e676f64622e636f6d2f7374617469632f696d616765732f6d64625f6c6f676f2e737667
+## User Stories
+- As a User, I should be able to view images in customer review content.
+- As a User, I should be able to refine customer review by selecting a relavant image.
+- As a User, I should be able to browse all customer images, and have it connected to the main review content view.
 
 ## Table of Contentes
 1. Usage
@@ -37,16 +27,33 @@ All functionality in this project was built primarily with ReactJS on the front 
 3. Development
 
 ## Usage
-
+1. Install npm package in root directory:
+```
+npm install
+```
+2. Create data by running seed command:
+```
+npm run seed
+```
+3. Start the server @ http://localhost:3003:
+```
+npm start
+```
 ## Requirements
 An `nvmrc` file is included if using nvm.
 * Node 6.13.0
-* etc
+* nodemon
+* MongoDB
 
 ## Development
 ### Installing Dependencies
 From within the root directory:
 ```#!/bin/bash
 npm install -g webpack
-npm install
+npm install axios
+npm install body-parser
+npm install express
+npm install mongoose
+npm install react
+npm install react-dom
 ```
