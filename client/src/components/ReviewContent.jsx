@@ -43,10 +43,9 @@ class ReviewContent extends React.Component {
     super(props);
     this.state = {
       showGallery: false,
-      showReviewContent: false,
-      imgUrls: [],
+      imgUrls: this.setData(),
       imageReviewState: '',
-      reviewId: this.props.images._id,
+      reviewId: this.props.id,
       imagesObj: this.props.images,
       customerName: this.props.customerName,
       reviewStars: this.props.reviewStars,
@@ -55,16 +54,19 @@ class ReviewContent extends React.Component {
       createdDate: this.props.createdDate
 
     };
+
     this.handleClick = this.handleClick.bind(this);
     this.resetForm = this.resetForm.bind(this);
-    this.handleClickImage = this.handleClickImage.bind(this);
+
     this.getImageUrl = this.getImageUrl.bind(this);
     this.getCarouselId = this.getCarouselId.bind(this);
     this.updateImagesObj = this.updateImagesObj.bind(this);
+    this.resetId = this.resetId.bind(this);
+
 
   }
   resetForm(event) {
-    event.preventDefault();
+    // event.preventDefault();
     this.setState({ showGallery: false });
   }
   handleClick(event) {
@@ -73,22 +75,11 @@ class ReviewContent extends React.Component {
       showGallery: true
     });
   }
-  handleClickImage(event) {
-    event.preventDefault();
-    this.setState({ showReviewContent: true });
-  }
+
   componentDidMount() {
-    this.setData();
     this.setState({ imageReviewState: this.props.image });
   }
-  // componentWillUpdate(prevProps) {
-  //   if (prevProps.images !== this.props.images) {
-  //     this.setState({ imagesObj: this.props.images });
-  //     this.getCarouselId(this.state.carouselId);
-  //     console.log(this.state.imagesObj);
-  //   }
 
-  // }
   setData() {
     let imgUrls = [];
     let mapData = this.props.customerData.map(imagesObj => {
@@ -96,16 +87,15 @@ class ReviewContent extends React.Component {
         imgUrls.push({ id: imagesObj._id, urls: imagesArr.image });
       });
     });
+    return imgUrls;
 
-    this.setState({ imgUrls });
   }
   getImageUrl(url) {
     this.setState({ imageReviewState: url });
   }
   getCarouselId(id) {
     this.setState({ reviewId: id });
-    console.log(this.state.reviewId);
-    this.updateImagesObj(this.state.reviewId);
+    this.updateImagesObj(id);
 
   }
   updateImagesObj(id) {
@@ -116,7 +106,8 @@ class ReviewContent extends React.Component {
         return false;
       }
     });
-    console.log(reviewDecisionObj[0].customerName);
+    console.log(id);
+    console.log(reviewDecisionObj);
     this.setState({
       customerName: reviewDecisionObj[0].customerName,
       reviewStars: reviewDecisionObj[0].reviewStars,
@@ -124,18 +115,20 @@ class ReviewContent extends React.Component {
       reviewContent: reviewDecisionObj[0].reviewContent,
       createdDate: reviewDecisionObj[0].createdDate
     });
-
+  }
+  resetId() {
+    this.setState({
+      reviewId: this.props.id,
+      imageReviewState: this.props.image
+    });
   }
   render() {
-
     return (
-
       <Popup
-
         trigger={
-          <Button>
+          <Button >
             {
-              <ImagePreview image={this.props.image} />
+              <ImagePreview image={this.props.image} resetId={this.resetId} />
             }
           </Button>}
         modal
@@ -149,9 +142,9 @@ class ReviewContent extends React.Component {
             {this.state.showGallery ?
               <ImageGallery
                 customerData={this.props.customerData}
+                getCarouselId={this.getCarouselId}
                 resetForm={this.resetForm}
-                handleClickImage={this.handleClickImage}
-                showReviewContent={this.state.showReviewContent}
+                getImageUrl={this.getImageUrl}
               /> :
               <div className="parentDiv">
                 <Imagegallery onClick={this.handleClick}><IoMdApps size={30} />View Image Gallery</Imagegallery>
@@ -210,10 +203,10 @@ class ReviewContent extends React.Component {
                     <text className="content">{this.state.reviewContent}</text>
                   </div>
                   <div className="imageContent">
-                    <ImageCarousel image={this.state.imageReviewState} id={this.props.images._id} imgUrls={this.state.imgUrls} getCarouselId={this.getCarouselId} />
+                    <ImageCarousel image={this.state.imageReviewState} id={this.state.reviewId} imgUrls={this.state.imgUrls} getCarouselId={this.getCarouselId} />
                   </div>
                   <div className="thumbnail">Images in this review</div>
-                  <ImageReview id={this.props.images._id} customerData={this.props.customerData} getImageUrl={this.getImageUrl} />
+                  <ImageReview id={this.state.reviewId} customerData={this.props.customerData} getImageUrl={this.getImageUrl} />
                 </Reviewcontent>
 
               </div>

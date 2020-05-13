@@ -15,7 +15,7 @@ class ImagePreview extends React.Component {
       <div>
         {
 
-          <Imagepreview style={{ width: 200, height: 180 }} src={this.props.image} />
+          <Imagepreview style={{ width: 200, height: 180 }} src={this.props.image} onClick={this.props.resetId}/>
 
         }
       </div>

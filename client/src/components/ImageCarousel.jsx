@@ -14,6 +14,7 @@ const Left = styled.p`
 `;
 const Right = styled.p`
  right: 500px;
+ position: absolute;
  `;
 class IamgeCarousel extends React.Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class IamgeCarousel extends React.Component {
       currentImageIndex: index,
       currentId: this.props.imgUrls[index].id
     });
-    this.props.getCarouselId(this.state.currentId);
+    this.props.getCarouselId(this.props.imgUrls[index].id);
   }
 
   nextSlide() {
@@ -65,14 +66,19 @@ class IamgeCarousel extends React.Component {
       currentImageIndex: index,
       currentId: this.props.imgUrls[index].id
     });
-    this.props.getCarouselId(this.state.currentId);
+    this.props.getCarouselId(this.props.imgUrls[index].id);
   }
   handleClickImage(e) {
     e.preventDefault();
     this.setState({ imageChange: true });
   }
   checkIndex() {
-    let index = this.props.imgUrls.findIndex(x => x.urls === this.props.image && x.id === this.props.id);
+
+    let index = this.props.imgUrls.findIndex(x => {
+      console.log(x.urls + ',' + this.props.image + ',' + x.id + ',' + this.props.id);
+      return (x.urls === this.props.image && x.id === this.props.id);
+    });
+
     this.setState({ currentImageIndex: index });
     this.props.getCarouselId(this.state.currentId);
 

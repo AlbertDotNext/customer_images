@@ -23,6 +23,7 @@ class ImageList extends React.Component {
               return <ReviewContent
                 image={imageArr.image}
                 images={imagesObj}
+                id={imagesObj._id}
                 customerName={imagesObj.customerName}
                 reviewStars={imagesObj.reviewStars}
                 reviewTitle={imagesObj.reviewTitle}
