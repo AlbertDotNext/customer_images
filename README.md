@@ -2,8 +2,8 @@
 Built using full-stack knowledge, the Customer Images functionality is one part of a larger Amazon clone. The component is able to render all customer images, as well as all customer reviews and associated data based on a single customer ID.
 
 ## Contributors
-* [Eric Su - Product Images Viewer](https://github.com/GHesericsu/product-images-viewer)
-* [Sumit Lal - Video Carousel](https://github.com/sumitSLal/video-carousel)
+* [Eric Su - Product Description](https://github.com/GHesericsu/product-images-viewer)
+* [Sumit Lal - Carousel](https://github.com/sumitSLal/video-carousel)
 * [Albert Wu - Customer Images](https://github.com/AlbertWu2020/customer-images)
 * [Jake Turchetta - Customer Reviews](https://github.com/jaketurchetta/customer-reviews)
 
