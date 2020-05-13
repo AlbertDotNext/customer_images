@@ -1,5 +1,5 @@
 # Customer Images
-Create a customer images module for front end group project
+Built using full-stack knowledge, the Customer Images functionality is one part of a larger Amazon clone. The component is able to render all customer images, as well as all customer reviews and associated data based on a single customer ID.
 
 ## Contributors
 * [Eric Su - Product Images Viewer](https://github.com/GHesericsu/product-images-viewer)
