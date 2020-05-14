@@ -31,7 +31,11 @@ class ImageReview extends React.Component {
         {this.props.customerData.map(imagesObj => {
           if (this.state.reviewId === imagesObj._id) {
             return imagesObj.imagesUrl.map(imageArr => {
-              return <Imagethumbnail style={{ width: 80, height: 80 }} src={imageArr.image} onClick={this.handleClick} />;
+              return <Imagethumbnail
+                      style={{ width: 80, height: 80 }}
+                      src={imageArr.image}
+                      onClick={this.handleClick}
+                    />;
             });
           }
         })}

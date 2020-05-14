@@ -31,7 +31,12 @@ class ImageGallery extends React.Component {
 
         {this.props.customerData.map(imagesObj => {
           return imagesObj.imagesUrl.map(imagesArr => {
-            return <Galleryimage style={{ width: 100, height: 80 }} value={imagesObj._id} src={imagesArr.image} onClick={this.handleClickImage} />;
+            return <Galleryimage
+                    style={{ width: 100, height: 80 }}
+                    value={imagesObj._id}
+                    src={imagesArr.image}
+                    onClick={this.handleClickImage}
+                  />;
           });
         })}
 

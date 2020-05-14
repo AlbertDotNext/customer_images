@@ -5,9 +5,6 @@ import Popup from 'reactjs-popup';
 class ImageList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      popUp: false
-    };
 
   }
 

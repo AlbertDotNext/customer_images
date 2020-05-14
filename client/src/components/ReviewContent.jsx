@@ -69,11 +69,7 @@ const Modal = styled.div`
   border-radius: 18px;
   border: 1px solid #cfcece;
   `;
-const PopoverHeader = styled.header`
-  position: relative;
-  text-align: left;
 
-`;
 class ReviewContent extends React.Component {
   constructor(props) {
     super(props);
@@ -164,7 +160,10 @@ class ReviewContent extends React.Component {
         trigger={
           <Button >
             {
-              <ImagePreview image={this.props.image} resetId={this.resetId} />
+              <ImagePreview
+                image={this.props.image}
+                resetId={this.resetId}
+              />
             }
           </Button>}
         modal
@@ -241,10 +240,18 @@ class ReviewContent extends React.Component {
                     <span className="content">{this.state.reviewContent}</span>
                   </ImageInfo>
                   <ImageView>
-                    <ImageCarousel image={this.state.imageReviewState} id={this.state.reviewId} imgUrls={this.state.imgUrls} getCarouselId={this.getCarouselId} />
+                    <ImageCarousel
+                      image={this.state.imageReviewState}
+                      id={this.state.reviewId}
+                      imgUrls={this.state.imgUrls}
+                      getCarouselId={this.getCarouselId}
+                    />
                   <ImageBottom>
                   <div className="thumbnail">Images in this review</div>
-                  <ImageReview id={this.state.reviewId} customerData={this.props.customerData} getImageUrl={this.getImageUrl} />
+                  <ImageReview
+                    id={this.state.reviewId}
+                    customerData={this.props.customerData} getImageUrl={this.getImageUrl}
+                  />
                   </ImageBottom>
                   </ImageView>
                 </ImageViewContainer>

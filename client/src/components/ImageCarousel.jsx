@@ -93,16 +93,20 @@ class IamgeCarousel extends React.Component {
           <Arrow
             direction="left"
             clickFunction={this.previousSlide}
-            glyph="&#9664;" />
+            glyph="&#9664;"
+          />
         </Left>
 
-        <ImageSlide url={this.props.imgUrls[this.state.currentImageIndex].urls} />
+        <ImageSlide
+          url={this.props.imgUrls[this.state.currentImageIndex].urls}
+        />
 
         <Right>
           <Arrow
             direction="right"
             clickFunction={this.nextSlide}
-            glyph="&#9654;" />
+            glyph="&#9654;"
+          />
         </Right>
 
       </Carousel>
