@@ -12,18 +12,50 @@ import { FaStar, FaRegStar } from 'react-icons/fa';
 const Button = styled.button`
   cursor: pointer;
 `;
-const Imagegallery = styled.span`
+const GalleryIcon = styled.div`
+  width: 30px;
+  height: 30px;
+  float: left;
   cursor: pointer;
-  width: 100px;
+`
+const Imagegallery = styled.span`
+  text-align: center;
+  marigin: atuo;
+  cursor: pointer;
+  font-weight: bold;
+
   `;
 const Reviewcontent = styled.div`
-  position: relative;
-  text-align: auto;
-  margin-top: auto;
-  display: flex;
-  flex-flow: column wrap;
   height: 100%;
+  padding-top: 10px;
   `;
+const ImageInfo = styled.div`
+  float: right;
+  width: 310px;
+  height: 100%;
+  padding-left: 18px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-top: -4px;
+`
+const ImageBottom = styled.div`
+  float: right;
+  padding-right: 70px;
+  margin-top: -210px;
+  position: relative;
+  font-size: 18px;
+  color: grey;
+`
+ const ImageViewContainer = styled.div`
+  height: 100%;
+  position: relative;
+  padding-top: 10px;
+`
+const ImageView = styled.div`
+  position: relative;
+  left: 0;
+`
+
 const Modal = styled.div`
   cursor: pointer;
   position: absolute;
@@ -37,7 +69,11 @@ const Modal = styled.div`
   border-radius: 18px;
   border: 1px solid #cfcece;
   `;
+const PopoverHeader = styled.header`
+  position: relative;
+  text-align: left;
 
+`;
 class ReviewContent extends React.Component {
   constructor(props) {
     super(props);
@@ -146,11 +182,11 @@ class ReviewContent extends React.Component {
                 resetForm={this.resetForm}
                 getImageUrl={this.getImageUrl}
               /> :
-              <div className="parentDiv">
-                <Imagegallery onClick={this.handleClick}><IoMdApps size={30} />View Image Gallery</Imagegallery>
+              <Reviewcontent>
+                <GalleryIcon onClick={this.handleClick}><IoMdApps size={25} /></GalleryIcon><Imagegallery onClick={this.handleClick}>View Image Gallery</Imagegallery>
 
-                <Reviewcontent>
-                  <div className="RightBlock">
+                <ImageViewContainer>
+                  <ImageInfo>
                     <text style={{ fontweight: 'bold' }}>
                       <span className="stars">
                         {this.state.reviewStars === 1 ?
@@ -195,21 +231,25 @@ class ReviewContent extends React.Component {
                                   </span> : null
                         }
                       </span>
+                      <span style={{fontWeight: 'bold'}}>
                       {this.state.reviewTitle}
+                      </span>
                     </text>
                     <br />
-                    <text className="cusomerInfo">By {this.state.customerName} on {moment(this.state.createdDate).format('LL')}</text>
+                    <span style={{color: 'grey'}}>By {this.state.customerName} on {moment(this.state.createdDate).format('LL')}</span>
                     <br />
-                    <text className="content">{this.state.reviewContent}</text>
-                  </div>
-                  <div className="imageContent">
+                    <span className="content">{this.state.reviewContent}</span>
+                  </ImageInfo>
+                  <ImageView>
                     <ImageCarousel image={this.state.imageReviewState} id={this.state.reviewId} imgUrls={this.state.imgUrls} getCarouselId={this.getCarouselId} />
-                  </div>
+                  <ImageBottom>
                   <div className="thumbnail">Images in this review</div>
                   <ImageReview id={this.state.reviewId} customerData={this.props.customerData} getImageUrl={this.getImageUrl} />
-                </Reviewcontent>
+                  </ImageBottom>
+                  </ImageView>
+                </ImageViewContainer>
 
-              </div>
+              </Reviewcontent>
             }
 
           </div>

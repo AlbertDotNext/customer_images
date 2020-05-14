@@ -13,7 +13,7 @@ const ImageSlide = ({ url }) => {
   };
   return (
     <Imageslide style={styles}>
-      <img style={{ width: 380, height: 300 }} src={url} />
+      <img style={{ width: 300, height: 300 }} src={url} />
     </Imageslide>
   );
 };

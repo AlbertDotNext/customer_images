@@ -9,12 +9,16 @@ const Carousel = styled.div`
   margin: 0;
   width: 100%;
 `;
-const Left = styled.p`
-  left: 0px;
+const Left = styled.div`
+  display: block;
+  opacity: 1;
 `;
-const Right = styled.p`
- right: 500px;
- position: absolute;
+const Right = styled.div`
+  opacity: 1;
+  float: right;
+  right: 370px;
+  bottom: 150px;
+  position: absolute;
  `;
 class IamgeCarousel extends React.Component {
   constructor(props) {
