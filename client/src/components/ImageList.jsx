@@ -1,6 +1,6 @@
 import React from 'react';
 import ReviewContent from './reviewContent.jsx';
-import Popup from 'reactjs-popup';
+
 
 class ImageList extends React.Component {
   constructor(props) {
