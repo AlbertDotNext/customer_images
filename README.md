@@ -31,13 +31,17 @@ All functionality in this project was built primarily with ReactJS on the front 
 ```
 npm install
 ```
-2. Create data by running seed command:
+2. Create container by running the app in the background:
 ```
-npm run seed
+docker-compose up -d
 ```
-3. Start the server @ http://localhost:3003:
+3. Navigating to localhost:3003
 ```
-npm start
+http://localhost:3003
+```
+4. Disconnect server and clean up
+```
+docker-compose down --rm all
 ```
 ## Requirements
 An `nvmrc` file is included if using nvm.
