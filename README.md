@@ -15,7 +15,7 @@ All functionality in this project was built primarily with ReactJS on the front 
 <img src="https://lh5.googleusercontent.com/rdAoVdYKOCnmtev6t7DJrEY7mG4iYsRPqeTH0Z-OrlsVmiea3q5SMtOGNSa7HzJcyxcIcelTacG5gPNgyBoIviiNcLbohQAicvpldcfM32Klb_ewouDRd67OtYhUAU1CEZB4rBqB" width="100" />
 <img src="https://lh6.googleusercontent.com/tKlT8lGB2bTDqSilr_a2y8vaO-QBUdcUIYASnslf-RAKTxUEiEBq-_gTVBP0irIP1ZWNuSvp1fouOJrQBXUr0joVmBZzNyOec4jBpOyVogPZMOYhPH6YQwYOiLdZnfuaDnFel9rn" width="100" />
 <img src="https://cloud.mongodb.com/static/images/mdb_logo.svg" width='100'/>
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dev-insider.de%2Findex.cfm%3Fpid%3D14952%26pk%3D8392%26fk%3D0%26type%3Dgallerylisting&psig=AOvVaw3JsSSAqsl_OaDvm4wr05HJ&ust=1590392028701000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPjzpJL-y-kCFQAAAAAdAAAAABAZ" width="100">
+<img src="https://www.docker.com/sites/default/files/d8/2019-07/vertical-logo-monochromatic.png" width="100">
 
 ## User Stories
 - As a User, I should be able to view images in customer review content.
