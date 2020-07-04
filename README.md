@@ -27,6 +27,7 @@ All functionality in this project was built primarily with ReactJS on the front 
 - As a User, I should be able to refine customer review by selecting a relavant image.
   <img src="demoImage2.png" width="500">
 - As a User, I should be able to browse all customer images, and have it connected to the main review content view.
+
   <img src="demoImage3.png" width="500">
 
 ## Table of Contentes
