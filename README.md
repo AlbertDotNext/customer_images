@@ -23,7 +23,7 @@ All functionality in this project was built primarily with ReactJS on the front 
 ## User Stories
 
 - As a User, I should be able to view images in customer review content.
-  ![Alt text](https://github.com/AlbertWu2020/customer-images/demoImage1.png 'Optional title')
+  ![Alt text](https://github.com/AlbertWu2020/customer-images/to/demoImage1.png 'Optional title')
 - As a User, I should be able to refine customer review by selecting a relavant image.
 - As a User, I should be able to browse all customer images, and have it connected to the main review content view.
 
