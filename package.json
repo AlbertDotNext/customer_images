@@ -47,7 +47,7 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "faker": "^4.1.0",
     "jest": "^25.5.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "mongodb": "^3.5.7",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
