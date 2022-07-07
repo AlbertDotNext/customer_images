@@ -28,7 +28,7 @@
     "body-parser": "^1.19.0",
     "eslint-config-hackreactor": "github:reactorcore/eslint-config-hackreactor",
     "express": "^4.17.1",
-    "moment": "^2.25.1",
+    "moment": "^2.29.4",
     "mongoose": "^5.9.11",
     "mongoose-auto-increment": "^5.0.1",
     "react": "^16.13.1",
